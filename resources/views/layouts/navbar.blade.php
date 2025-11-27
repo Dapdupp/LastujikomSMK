@@ -134,14 +134,9 @@
                    class="nav-item {{ $currentPath === 'admin/produk' ? 'active' : '' }}">
                     KELOLA PRODUK
                 </a>
-                
-                <a href="" 
-                   class="nav-item {{ $currentPath === 'admin/products' ? 'active' : '' }}">
-                    KELOLA USER
-                </a>
-                
-                <a href="" 
-                   class="nav-item {{ $currentPath === 'admin/members' ? 'active' : '' }}">
+
+                <a href="{{ route('admin.member') }}" 
+                   class="nav-item {{ $currentPath === 'admin/member' ? 'active' : '' }}">
                     KELOLA MEMBER
                 </a>
                 
