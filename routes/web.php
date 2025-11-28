@@ -5,6 +5,7 @@
     use App\Http\Controllers\Auth\LoginController;
     use App\Http\Controllers\admin\ProductController;
     use App\Http\Controllers\kasir\KasirDashboardController;
+    use App\Http\Controllers\admin\AdminMemberController;
 
     // --------------------------------------------------------------------------
     // 1. ROUTE ROOT (INDEX)
@@ -48,21 +49,18 @@
         // Dashboard kasir
         Route::prefix('kasir')->name('kasir.')->group(function () {
     
-    // 1. DASHBOARD
-    // URL: /kasir/dashboard | Nama Route: kasir.dashboard
-    Route::get('/dashboard', [KasirDashboardController::class, 'dashboard'])->name('dashboard');
-    
-    // 2. TRANSAKSI (INI YANG MEMBUAT ERROR)
-    // URL: /kasir/transaksi | Nama Route: kasir.transaksi
-    Route::get('/transaksi', [KasirDashboardController::class, 'transaksi'])->name('transaksi');
-    
-    // 3. TAMBAH MEMBER
-    // URL: /kasir/add-member | Nama Route: kasir.add-member
-    Route::get('/add-member', [KasirDashboardController::class, 'addMember'])->name('add-member');
-    
-    // 4. LIHAT PRODUK
-    // URL: /kasir/view-products | Nama Route: kasir.view-products
-    Route::get('/view-products', [KasirDashboardController::class, 'viewProducts'])->name('view-products');
+    // 1. DASHBOARD KASIR
+        Route::get('/dashboard', [KasirDashboardController::class, 'dashboard'])->name('dashboard');
+        Route::get('/transaksi', [KasirDashboardController::class, 'transaksi'])->name('transaksi');
+        Route::get('/add_member', [KasirDashboardController::class, 'add_member'])->name('add_member');
+        Route::get('/viewproducts', [KasirDashboardController::class, 'viewProducts'])->name('view-products');
+    }); 
+
+    // 2. DASHBOARD ADMIN
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/members', [AdminMemberController::class, 'index'])->name('member');
+        Route::get('/members/{member}', [AdminMemberController::class, 'show'])->name('members.show');
+        Route::delete('/members/{member}', [AdminMemberController::class, 'destroy'])->name('members.destroy');
 });
 
         // ------------------------------------

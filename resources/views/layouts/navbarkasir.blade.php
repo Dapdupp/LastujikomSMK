@@ -127,8 +127,8 @@
                     TRANSAKSI
                 </a>
                 
-                <a href="{{ route('kasir.add-member') }}" 
-                    class="nav-item {{ $currentPath === 'cashier/add-member' ? 'active' : '' }}">
+                <a href="{{ route('kasir.add_member') }}" 
+                    class="nav-item {{ $currentPath === 'cashier/add_member' ? 'active' : '' }}">
                     TAMBAH MEMBER
                 </a>
                 

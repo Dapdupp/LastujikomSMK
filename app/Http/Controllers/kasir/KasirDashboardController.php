@@ -16,6 +16,11 @@ class KasirDashboardController extends Controller
     {
         return view('kasir.transaksi');
     }
+
+            public function add_member()
+    {
+        return view('kasir.addmember');
+    }
 }
 
 
